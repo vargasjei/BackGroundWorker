@@ -31,6 +31,7 @@
             pbProgreso = new ProgressBar();
             btnIniciar = new Button();
             btnDetener = new Button();
+            bwHilo = new System.ComponentModel.BackgroundWorker();
             SuspendLayout();
             // 
             // pbProgreso
@@ -48,6 +49,7 @@
             btnIniciar.TabIndex = 1;
             btnIniciar.Text = "Iniciar";
             btnIniciar.UseVisualStyleBackColor = true;
+            btnIniciar.Click += btnIniciar_Click;
             // 
             // btnDetener
             // 
@@ -57,6 +59,13 @@
             btnDetener.TabIndex = 2;
             btnDetener.Text = "Detener";
             btnDetener.UseVisualStyleBackColor = true;
+            // 
+            // bwHilo
+            // 
+            bwHilo.WorkerReportsProgress = true;
+            bwHilo.WorkerSupportsCancellation = true;
+            bwHilo.DoWork += bwHilo_DoWork;
+            bwHilo.ProgressChanged += bwHilo_ProgressChanged;
             // 
             // Form1
             // 
@@ -76,5 +85,6 @@
         private ProgressBar pbProgreso;
         private Button btnIniciar;
         private Button btnDetener;
+        private System.ComponentModel.BackgroundWorker bwHilo;
     }
 }
